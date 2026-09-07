@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webcraft Studio</title>
+  <style>
+    body {
+      background: #071b28;
+      color: #F4F2ED;
+      font-family: sans-serif;
+      padding: 40px;
+    }
+
+      @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+        .portfolio-img:hover {
+      transform: scale(1.1);
+    }
+
+  </style>
+</head>
+<body>
+
+    <canvas id="hero-canvas" style="position: absolute; top: 0; left: 0; right: 0; height: 100vh; z-index: -1;"></canvas>
+
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0;">
+    <div style="font-weight: bold; font-size: 1.3rem;">
+      Webcraft <span style="color: #f2e469;">Studio</span>
+    </div>
+    <div style="display: flex; gap: 30px;">
+      <a href="#portfolio" style="color: #F4F2ED; text-decoration: none;">Work</a>
+      <a href="#pricing" style="color: #F4F2ED; text-decoration: none;">Pricing</a>
+    </div>
+  </nav>
+
+  <header style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; padding: 70px 0; min-height: 90vh;">
+
+  <div>
+      <p style="color: #8B5CF6; font-weight: bold; margin-bottom: 39px;">
+        Small budget. Big-brand website.
+      </p>
+      <h1 style="font-size: 3rem; max-width: 15ch;">
+        We build the site your business actually deserves.
+      </h1>
+      <p style="color: #9498A8; margin-top: 20px; max-width: 40ch;">
+        A website that turns visitors into customers — clean, fast, and built around your business.
+      </p>
+      <a href="#order" style="display: inline-block; margin-top: 30px; background: #D6A857; color: white; padding: 14px 26px; border-radius: 5px; text-decoration: none; font-weight: bold;">
+        Order your website →
+      </a>
+    </div>
+    <div style="background: #15171F; border-radius: 10px; padding: 26px; border: 1px solid rgba(244,242,237,0.1);">
+      <p>Simple business site: 3–5 days</p>
+      <p>Design revisions: Included</p>
+      <p>Mobile friendly: Always</p>
+    </div>
+  </header>
+
+        <section id="portfolio" class="fade-section" style="padding: 70px 0;">
+    <h2 style="font-size: 2rem; margin-bottom: 10px;">A few styles we can build in</h2>
+    <p style="color: #9498A8; margin-bottom: 40px;">Every business is different — here's a few directions we design in.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
+      <div onclick="openPreview('cafe-portfolio.html', 'Warm & Local — Cafe Style')" style="cursor: pointer; background: #15171F; border-radius: 10px; overflow: hidden; border: 1px solid rgba(244,242,237,0.1);">
+        <div style="height: 150px; overflow: hidden;">
+          <img src="https://picsum.photos/seed/cafe123/400/300" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" class="portfolio-img">
+        </div>
+        <div style="padding: 20px;">
+          <h3>Warm & local</h3>
+          <p style="color: #9498A8; font-size: 0.9rem; margin-top: 6px;">For cafes, restaurants, home kitchens.</p>
+        </div>
+      </div>
+
+      <div onclick="openPreview('real-estate-portfolio.html', 'Professional & 3D — Real Estate Style')" style="cursor: pointer; background: #15171F; border-radius: 10px; overflow: hidden; border: 1px solid rgba(244,242,237,0.1);">
+        <div style="height: 150px; overflow: hidden;">
+          <img src="https://picsum.photos/seed/luxury789/400/300" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" class="portfolio-img">
+        </div>
+        <div style="padding: 20px;">
+          <h3>Professional & 3D</h3>
+          <p style="color: #9498A8; font-size: 0.9rem; margin-top: 6px;">For real estate, consultants, agencies.</p>
+        </div>
+      </div>
+
+      <div onclick="openPreview('luxury-fashion-portfolio.html', 'Premium & Cinematic Style')" style="cursor: pointer; background: #15171F; border-radius: 10px; overflow: hidden; border: 1px solid rgba(244,242,237,0.1);">
+        <div style="height: 150px; overflow: hidden;">
+          <img src="https://picsum.photos/seed/house456/400/300" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" class="portfolio-img">
+        </div>
+        <div style="padding: 20px;">
+          <h3>Premium & cinematic</h3>
+          <p style="color: #9498A8; font-size: 0.9rem; margin-top: 6px;">For high-end products and brands.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="pricing" class="fade-section" style="padding: 70px 0;">
+
+    <h2 style="font-size: 2rem; margin-bottom: 10px;">Simple, upfront pricing</h2>
+    <p style="color: #9498A8; margin-bottom: 40px;">Final price depends on pages and features.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
+      <div style="background: #15171F; border-radius: 10px; padding: 30px; border: 1.5px solid rgba(244,242,237,0.1);">
+        <h3>Starter</h3>
+        <div style="font-size: 2rem; margin-top: 12px;">₹25,000</div>
+        <p style="color: #9498A8; font-size: 0.85rem;">onwards</p>
+        <ul style="margin-top: 18px; padding-left: 18px; color: #9498A8; font-size: 0.9rem;">
+          <li>1 page website</li>
+          <li>Mobile friendly</li>
+          <li>Contact / WhatsApp button</li>
+        </ul>
+      </div>
+
+      <div style="background: #15171F; border-radius: 10px; padding: 30px; border: 1.5px solid #8B5CF6;">
+        <h3>Business</h3>
+        <div style="font-size: 2rem; margin-top: 12px;">₹50,000</div>
+        <p style="color: #9498A8; font-size: 0.85rem;">onwards</p>
+        <ul style="margin-top: 18px; padding-left: 18px; color: #9498A8; font-size: 0.9rem;">
+          <li>Up to 5 pages</li>
+          <li>Custom design for your brand</li>
+          <li>2 rounds of revisions</li>
+        </ul>
+      </div>
+
+      <div style="background: #15171F; border-radius: 10px; padding: 30px; border: 1.5px solid rgba(244,242,237,0.1);">
+        <h3>Premium</h3>
+        <div style="font-size: 2rem; margin-top: 12px;">₹1,00,000</div>
+        <p style="color: #9498A8; font-size: 0.85rem;">onwards</p>
+        <ul style="margin-top: 18px; padding-left: 18px; color: #9498A8; font-size: 0.9rem;">
+          <li>Online ordering / booking</li>
+          <li>Animations, 3D elements</li>
+          <li>Full custom build</li>
+        </ul>
+      </div>
+    </div>
+
+    
+        <div style="margin-top: 30px; background: linear-gradient(135deg, #4b4501, #D6A857); border-radius: 10px; padding: 34px; text-align: center;">
+      <h3 style="font-size: 1.3rem;">Not sure which plan fits?</h3>
+      <p style="margin-top: 10px; color: #E8E4FF;">
+        Let's talk — we'll figure out the right fit together.
+      </p>
+      <a href="#order" style="display: inline-block; margin-top: 20px; background: white; color: #5d40bb; padding: 12px 20px; border-radius: 2px; text-decoration: none; font-weight: bold;">
+        Let's Talk →
+      </a>
+    </div>
+   
+  </section>
+
+    <section id="process" class="fade-section" style="padding: 70px 0;">
+    <h2 style="font-size: 2rem; margin-bottom: 10px;">From order to delivery</h2>
+-
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 30px;">
+      <div style="border-top: 2px solid #D6A857; padding-top: 16px;">
+        <div style="font-size: 1.7rem; color: #D6A857;">01</div>
+        <h3 style="margin-top: 8px;">You send details</h3>
+        <p style="color: #9498A8; font-size: 0.88rem; margin-top: 6px;">Fill the form or message on WhatsApp.</p>
+      </div>
+      <div style="border-top: 2px solid #D6A857; padding-top: 16px;">
+        <div style="font-size: 1.7rem; color: #D6A857;">02</div>
+        <h3 style="margin-top: 8px;">We share a design</h3>
+        <p style="color: #9498A8; font-size: 0.88rem; margin-top: 6px;">Built around your business.</p>
+      </div>
+      <div style="border-top: 2px solid #D6A857; padding-top: 16px;">
+        <div style="font-size: 1.7rem; color: #D6A857;">03</div>
+        <h3 style="margin-top: 8px;">We refine it</h3>
+        <p style="color: #9498A8; font-size: 0.88rem; margin-top: 6px;">Quick revisions until you're happy.</p>
+      </div>
+      <div style="border-top: 2px solid #D6A857; padding-top: 16px;">
+        <div style="font-size: 1.7rem; color: #D6A857;">04</div>
+        <h3 style="margin-top: 8px;">You get the site</h3>
+        <p style="color: #9498A8; font-size: 0.88rem; margin-top: 6px;">Delivered ready to use.</p>
+      </div>
+    </div>
+  </section>
+
+    <section id="order" class="fade-section" style="padding: 70px 0;">
+    <div style="background: #1C1F2B; border-radius: 12px; padding: 40px; border: 1px solid rgba(244,242,237,0.1);">
+      <h2 style="font-size: 1.8rem;">Ready to order your website?</h2>
+      <p style="color: #9498A8; margin-top: 10px;">Fill this in and it'll open WhatsApp with your details already filled in.</p>
+
+      <form id="orderForm" style="margin-top: 24px; display: flex; flex-direction: column; gap: 14px; max-width: 500px;">
+        <div>
+          <label style="font-size: 0.85rem; color: #9498A8;">Your name</label>
+          <input id="name" type="text" placeholder="Your name" required
+            style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid rgba(244,242,237,0.1); background: #0A0B10; color: white; margin-top: 4px;">
+        </div>
+
+        <div>
+          <label style="font-size: 0.85rem; color: #9498A8;">Business type</label>
+          <input id="business" type="text" placeholder="e.g. Restaurant, Tutor, Shop"
+            style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid rgba(244,242,237,0.1); background: #0A0B10; color: white; margin-top: 4px;">
+        </div>
+
+        <div>
+          <label style="font-size: 0.85rem; color: #9498A8;">Which package?</label>
+          <select id="package"
+            style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid rgba(244,242,237,0.1); background: #0A0B10; color: white; margin-top: 4px;">
+            <option>Starter — ₹25,000 onwards</option>
+            <option>Business — ₹50,000 onwards</option>
+            <option>Premium — ₹1,00,000 onwards</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="font-size: 0.85rem; color: #9498A8;">What do you need?</label>
+          <textarea id="details" placeholder="Tell us about your business"
+            style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid rgba(244,242,237,0.1); background: #0A0B10; color: white; margin-top: 4px; min-height: 80px;"></textarea>
+        </div>
+
+        <button type="submit"
+          style="background: #D6A857; color: white; border: none; padding: 14px; border-radius: 6px; font-weight: bold; cursor: pointer;">
+          Send order on WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+  <script>
+    const canvas = document.getElementById('hero-canvas');
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 8);
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const light1 = new THREE.PointLight(0x8b5cf6, 16, 22);
+    light1.position.set(3, 2, 4);
+    scene.add(light1);
+
+    const light2 = new THREE.AmbientLight(0x2a2740, 1.4);
+    scene.add(light2);
+
+    const geometry = new THREE.IcosahedronGeometry(2, 1);
+    const material = new THREE.MeshPhysicalMaterial({
+      color: 0x8b5cf6 ,
+      metalness: 0.3,
+      roughness: 0.15,
+      transmission: 0.95,
+      clearcoat: 1
+    });
+    const shape = new THREE.Mesh(geometry, material);
+    shape.position.set(2.5, 0, 0);
+    scene.add(shape);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      shape.rotation.x += 0.003;
+      shape.rotation.y += 0.004;
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+
+<script>
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value || 'Not given';
+      const business = document.getElementById('business').value || 'Not given';
+      const pkg = document.getElementById('package').value;
+      const details = document.getElementById('details').value || 'No extra details';
+
+      const message =
+        `Hi, I want to order a website.\n` +
+        
+      `Name: ${name}\n` +
+        `Business type: ${business}\n` +
+        `Package: ${pkg}\n` +
+        `Details: ${details}`;
+
+      const phone = '916372504701'; // your number, country code + number, no + or spaces
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+
+  <div id="previewOverlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; align-items: center; justify-content: center;">
+  <div id="previewBox" style="background: #15171F; border-radius: 12px; padding: 16px; max-width: 900px; width: 90%; height: 80vh; transform: scale(0.8); opacity: 0; transition: all 0.3s ease; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+      <h3 style="color: white;">Warm & Local — Cafe Style</h3>
+      <span onclick="closePreview()" style="cursor: pointer; color: #9498A8; font-size: 1.4rem;">✕</span>
+    </div>
+    <iframe id="previewFrame" src="" style="flex: 1; width: 100%; border: none; border-radius: 8px; background: white;"></iframe>
+  </div>
+</div>
+
+<script>
+  function openPreview(file, title) {
+    document.getElementById('previewFrame').src = file;
+    document.querySelector('#previewBox h3').textContent = title;
+    const overlay = document.getElementById('previewOverlay');
+    const box = document.getElementById('previewBox');
+    overlay.style.display = 'flex';
+    setTimeout(() => {
+      box.style.transform = 'scale(1)';
+      box.style.opacity = '1';
+    }, 10);
+  }
+
+  function closePreview() {
+    const overlay = document.getElementById('previewOverlay');
+    const box = document.getElementById('previewBox');
+    box.style.transform = 'scale(0.8)';
+    box.style.opacity = '0';
+    setTimeout(() => { overlay.style.display = 'none'; }, 300);
+  }
+</script>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+</body>
+</html>

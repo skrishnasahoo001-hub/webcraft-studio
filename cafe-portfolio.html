@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Corner Table — A neighbourhood restaurant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF3E4;
+    --ink:#241C13;
+    --turmeric:#C1841A;
+    --leaf:#3D5C43;
+    --brick:#A1442E;
+    --cream-line: rgba(36,28,19,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.08;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* NAV */
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 28px;
+    max-width:1080px;
+    margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    font-weight:700;
+  }
+  .brand span{color:var(--brick);}
+  nav ul{
+    display:flex;
+    list-style:none;
+    gap:28px;
+    font-size:0.95rem;
+  }
+  nav ul a{
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:border-color .2s ease;
+  }
+  nav ul a:hover, nav ul a:focus-visible{border-color:var(--brick);}
+  .nav-links{display:flex;}
+  @media (max-width:680px){
+    .nav-links{display:none;}
+  }
+
+  /* HERO */
+  .hero{
+    max-width:1080px;
+    margin:0 auto;
+    padding:40px 28px 90px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr; padding-bottom:56px;}
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5.6vw, 4.1rem);
+    letter-spacing:-0.01em;
+    max-width:11ch;
+  }
+  .hero p.lede{
+    margin-top:22px;
+    font-size:1.15rem;
+    max-width:38ch;
+    color:#3a3024;
+  }
+  .hero-note{
+    margin-top:30px;
+    display:flex;
+    gap:18px;
+    align-items:center;
+  }
+  .hero-note .badge{
+    width:52px; height:52px;
+    border-radius:50%;
+    background:var(--leaf);
+    color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:0.95rem;
+    flex-shrink:0;
+  }
+  .hero-note p{font-size:0.92rem; color:#4a3f2f; max-width:30ch;}
+
+  .hero-visual{
+    position:relative;
+    aspect-ratio:4/5;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(193,132,26,0.35), transparent 55%),
+      var(--leaf);
+    border-radius:6px;
+    display:flex;
+    align-items:flex-end;
+    padding:26px;
+    overflow:hidden;
+  }
+  .hero-visual::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 26px);
+  }
+  .hero-visual .tag{
+    position:relative;
+    background:var(--paper);
+    color:var(--ink);
+    padding:14px 18px;
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    max-width:220px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.18);
+  }
+
+  /* SECTION HEADER */
+  .section{
+    padding:70px 0;
+    border-top:1px solid var(--cream-line);
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:40px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(1.8rem, 3.4vw, 2.5rem);}
+  .section-head p{max-width:34ch; color:#4a3f2f;}
+
+  /* STORY */
+  .story{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:56px;
+  }
+  @media (max-width:820px){ .story{grid-template-columns:1fr;} }
+  .story .stat-row{
+    display:flex;
+    gap:36px;
+    margin-top:32px;
+  }
+  .stat-row div strong{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:2rem;
+    color:var(--brick);
+  }
+  .stat-row div span{font-size:0.88rem; color:#4a3f2f;}
+
+  /* MENU */
+  .menu-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:0 48px;
+  }
+  @media (max-width:680px){ .menu-grid{grid-template-columns:1fr;} }
+  .menu-item{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    padding:18px 0;
+    border-bottom:1px solid var(--cream-line);
+  }
+  .menu-item h3{font-size:1.08rem; font-weight:600;}
+  .menu-item p{font-size:0.88rem; color:#4a3f2f; margin-top:4px; max-width:34ch;}
+  .menu-item .price{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    white-space:nowrap;
+    color:var(--leaf);
+  }
+
+  /* GALLERY */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:10px;
+  }
+  @media (max-width:680px){ .gallery{grid-template-columns:repeat(2,1fr);} }
+  .gallery div{
+    aspect-ratio:1;
+    border-radius:4px;
+  }
+  .g1{background:linear-gradient(140deg, #C1841A, #7c531a);}
+  .g2{background:linear-gradient(140deg, #3D5C43, #22331f);}
+  .g3{background:linear-gradient(140deg, #A1442E, #5e2418);}
+  .g4{background:linear-gradient(140deg, #6b5a3a, #3a2f1c);}
+
+  /* REVIEW */
+  .review{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:6px;
+    padding:48px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  @media (max-width:680px){ .review{grid-template-columns:1fr; padding:32px 24px;} }
+  .review blockquote{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    line-height:1.4;
+  }
+  .review footer{margin-top:18px; font-size:0.88rem; opacity:0.75;}
+
+  /* HOURS / CONTACT */
+  .contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+  }
+  @media (max-width:680px){ .contact{grid-template-columns:1fr;} }
+  .hours-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid var(--cream-line);
+    font-size:0.95rem;
+  }
+  .contact-card{
+    background:var(--turmeric);
+    color:var(--ink);
+    padding:36px;
+    border-radius:6px;
+  }
+  .contact-card h3{font-size:1.4rem; margin-bottom:14px;}
+  .contact-card p{margin-bottom:6px; font-size:0.95rem;}
+  .btn{
+    display:inline-block;
+    margin-top:20px;
+    background:var(--ink);
+    color:var(--paper);
+    padding:12px 22px;
+    border-radius:4px;
+    text-decoration:none;
+    font-size:0.92rem;
+  }
+
+  footer.site-footer{
+    padding:32px 0 50px;
+    text-align:center;
+    font-size:0.85rem;
+    color:#4a3f2f;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">The Corner <span>Table</span></div>
+  <ul class="nav-links">
+    <li><a href="#story">Our story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1>Home cooking, served the way it should be.</h1>
+    <p class="lede">A small neighbourhood kitchen making fresh, seasonal food from recipes that have been in the family for three generations.</p>
+    <div class="hero-note">
+      <div class="badge">Est.<br>2019</div>
+      <p>No shortcuts, no ready-made sauces — everything is made fresh each morning.</p>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="tag">Today's special: Herb-roasted chicken with seasonal greens</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="section" id="story">
+    <div class="story">
+      <div>
+        <div class="section-head">
+          <h2>Why we started cooking for others</h2>
+        </div>
+        <p>It began with meals packed for neighbours who missed home food while working away from their families. Word travelled faster than we expected, and within a year the kitchen table wasn't big enough for the orders.</p>
+        <div class="stat-row">
+          <div><strong>6</strong><span>years open</span></div>
+          <div><strong>40+</strong><span>dishes on rotation</span></div>
+          <div><strong>3</strong><span>generations of recipes</span></div>
+        </div>
+      </div>
+      <div>
+        <p>Every plate follows the same rule as it did at home: nothing cooked in large batches so it never sits, vegetables bought each morning from the same two farmers, and a specials list that changes with the season.</p>
+        <br>
+        <p>We still don't have a menu card printed — it changes too often for that. What you'll find below is what's usually on offer, but ask us what's fresh today.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="menu">
+    <div class="section-head">
+      <h2>What's usually cooking</h2>
+      <p>A rotating spread of rice, curry and sides — priced for daily eating, not special occasions.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div>
+          <h3>Garden salad with citrus dressing</h3>
+          <p>Seasonal greens, toasted nuts, and a light herb dressing</p>
+        </div>
+        <div class="price">₹120</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h3>Slow-cooked lentil stew</h3>
+          <p>Lentils simmered with root vegetables and warm spices</p>
+        </div>
+        <div class="price">₹150</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h3>Herb-roasted chicken</h3>
+          <p>Free-range chicken roasted with rosemary and garlic</p>
+        </div>
+        <div class="price">₹280</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h3>Baked cheesecake</h3>
+          <p>Classic baked cheesecake, caramelised overnight</p>
+        </div>
+        <div class="price">₹110</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h3>Roasted seasonal vegetables</h3>
+          <p>Mixed vegetables lightly spiced and oven-roasted</p>
+        </div>
+        <div class="price">₹130</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h3>Pan-seared fish</h3>
+          <p>Fish in a light mustard-seed and herb sauce</p>
+        </div>
+        <div class="price">₹320</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <div class="section-head">
+      <h2>From the kitchen this week</h2>
+    </div>
+    <div class="gallery">
+      <div class="g1"></div>
+      <div class="g2"></div>
+      <div class="g3"></div>
+      <div class="g4"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="review">
+      <div>
+        <blockquote>"Tastes exactly like home cooking. I stopped looking anywhere else after the first week."</blockquote>
+        <footer>— Regular customer</footer>
+      </div>
+      <div>
+        <blockquote>"The stew here doesn't taste rushed. You can tell it's been on the stove for hours."</blockquote>
+        <footer>— Weekly regular</footer>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="visit">
+    <div class="section-head">
+      <h2>Visit or order ahead</h2>
+    </div>
+    <div class="contact">
+      <div>
+        <div class="hours-row"><span>Monday – Saturday</span><span>11:00 AM – 9:00 PM</span></div>
+        <div class="hours-row"><span>Sunday</span><span>12:00 PM – 4:00 PM</span></div>
+        <div class="hours-row"><span>Tiffin orders</span><span>Book a day ahead</span></div>
+      </div>
+      <div class="contact-card">
+        <h3>Reserve a table</h3>
+        <p>Near City Centre</p>
+        <p>Phone / WhatsApp: 9XXXXXXXXX</p>
+        <a class="btn" href="#">Message on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="site-footer">
+  Sample website — built to show what a real site for your business could look like.
+</footer>
+
+</body>
+</html>
